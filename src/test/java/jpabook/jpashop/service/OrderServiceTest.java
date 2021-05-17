@@ -42,7 +42,7 @@ class OrderServiceTest {
         Long orderId = orderService.order(member.getId(), book.getId(), orderCount);
 
         //then
-        Order getOrder = orderRepository.fineOne(orderId);
+        Order getOrder = orderRepository.findOne(orderId);
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.ORDER);
         assertThat(getOrder.getOrderItems().size()).isEqualTo(1);
         assertThat(getOrder.getTotalPrice()).isEqualTo(10000*orderCount);
@@ -79,7 +79,7 @@ class OrderServiceTest {
         orderService.cancelOrder(orderId);
 
         //then
-        Order getOrder = orderRepository.fineOne(orderId);
+        Order getOrder = orderRepository.findOne(orderId);
 
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.CANCEL);
         assertThat(item.getStockQuantity()).isEqualTo(10);
