@@ -46,7 +46,7 @@ class OrderServiceTest {
         assertThat(getOrder.getStatus()).isEqualTo(OrderStatus.ORDER);
         assertThat(getOrder.getOrderItems().size()).isEqualTo(1);
         assertThat(getOrder.getTotalPrice()).isEqualTo(10000*orderCount);
-        assertThat(book.getStockQuantity()).isEqualTo(8);
+        assertThat(book.getStockQuantity()).isEqualTo(10);
     }
 
     private Book createBook(String name, int price, int stockQuantity) {
